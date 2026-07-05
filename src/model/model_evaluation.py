@@ -126,7 +126,7 @@ def export_metrics_json(metrics_dict, output_dir="reports", file_name="eval.json
 def main():
     try:
         # 1. Load Evaluation Data
-        X_test, y_test_raw = load_test_features("./data/processed/test_tfid.csv")
+        X_test, y_test_raw = load_test_features("./data/processed/test_count.csv")
         
         # 2. Extract Pipeline Assets
         xgb_model, label_encoder = load_pipeline_artifacts(models_dir="models")

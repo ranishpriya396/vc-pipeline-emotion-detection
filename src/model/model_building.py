@@ -143,7 +143,7 @@ def main():
         params = load_model_params("params.yaml")
 
         # 2. Extract Data
-        X_train, y_train = load_and_split_features("./data/processed/train_tfid.csv")
+        X_train, y_train = load_and_split_features("./data/processed/train_count.csv")
 
         # 3. Transform Targets
         y_train_encoded, label_encoder, num_classes = encode_target_labels(

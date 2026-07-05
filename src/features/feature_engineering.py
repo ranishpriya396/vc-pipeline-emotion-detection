@@ -1,7 +1,7 @@
 import numpy as np 
 import pandas as pd
 import os 
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 import yaml 
 max_features = yaml.safe_load(open('params.yaml','r'))['feature_engineering']['max_features']
 # Fetch the data from data/processed
@@ -20,7 +20,7 @@ X_test = test_data["content"].values
 y_test = test_data["sentiment"].values
 
 # Initialize vectorizer
-vectorizer = TfidfVectorizer(max_features=5000)
+vectorizer = CountVectorizer(max_features=5000)
 
 # Fit and transform
 X_train_bow = vectorizer.fit_transform(X_train)
@@ -38,7 +38,7 @@ data_path = os.path.join("data", "processed")
 os.makedirs(data_path, exist_ok=True)
 
 # FIX 3: Save train_df and test_df (the features), NOT train_data
-train_df.to_csv(os.path.join(data_path, "train_tfid.csv"), index=False)
-test_df.to_csv(os.path.join(data_path, "test_tfid.csv"), index=False)
+train_df.to_csv(os.path.join(data_path, "train_count.csv"), index=False)
+test_df.to_csv(os.path.join(data_path, "test_count.csv"), index=False)
 
 print("Feature engineering completed successfully!")
